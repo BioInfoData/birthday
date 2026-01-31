@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>כניסה</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 520px; margin: 60px auto; padding: 0 16px; }
+    .box { border: 1px solid #ddd; border-radius: 12px; padding: 18px; }
+    input, button { font-size: 18px; padding: 10px 12px; }
+    button { cursor: pointer; }
+    #ok { display:none; margin-top: 18px; font-size: 26px; }
+    #err { color: #b00020; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>הכנס קוד כדי להמשיך</h2>
+    <input id="code" placeholder="קוד" />
+    <button onclick="check()">אישור</button>
+    <div id="err"></div>
+
+    <div id="ok">🎉 פתרת את החידה!! 🎉</div>
+  </div>
+
+  <script>
+    const CORRECT = "7429"; // <-- פה שמים את הקוד
+    function check() {
+      const v = document.getElementById("code").value.trim();
+      document.getElementById("err").textContent = "";
+      if (v === CORRECT) {
+        document.getElementById("ok").style.display = "block";
+      } else {
+        document.getElementById("err").textContent = "קוד שגוי, נסה שוב";
+      }
+    }
+  </script>
+</body>
+</html>
